@@ -1,0 +1,18 @@
+@startuml
+node "Cortex Workstation" {
+    [GUI - DGNA Cortette] <--> [TetraClient]
+} 
+
+node "Tetra Gateway" {
+    [RadQServer] <--> [CADIService]
+folder "RadQServerDGNARecords.xml"
+    [RadQServer] <--> [RadQServerDGNARecords.xml]
+} 
+
+cloud "Tetra Provider"
+
+
+
+[TetraClient] <--> [RadQServer]
+[CADIService] <--> [Tetra Provider]
+@enduml
