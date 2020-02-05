@@ -3,7 +3,7 @@ node "Cortex Workstation" {
     [GUI - DGNA Cortette] <--> [TetraClient]
 } 
 
-node "Tetra Gateway" {
+node "Tetra Gateway edit" {
     [RadQServer] <--> [CADIService]
 folder "RadQServerDGNARecords.xml"
     [RadQServer] <--> [RadQServerDGNARecords.xml]
