@@ -1,15 +1,40 @@
 @startuml
-node "Cortex Workstation1" {
-    [TCSDriver1] <--> [APDTCSClient1]
+node "Cortex Workstation1"{
+cloud TCSDriver as TCSDriver1
+component APDTCSClient as APDTCSClient1
+
+    [TCSDriver1]<--> [APDTCSClient1]
+
+folder APDTCSClientConfigXML1 [APDTCSClientConfigXML
+---
+IP and port of Sim Server host  
+]
+    [APDTCSClient1] <--> [APDTCSClientConfigXML1]
 } 
 
-node "Cortex Workstation2" {
-    [TCSDriver2] <--> [APDTCSClient2]
+node "Cortex Workstation2"{
+cloud TCSDriver as TCSDriver2
+component APDTCSClient as APDTCSClient2
+
+    [TCSDriver2]<--> [APDTCSClient2]
+
+folder APDTCSClientConfigXML2 [APDTCSClientConfigXML 
+]
+    [APDTCSClient2] <--> [APDTCSClientConfigXML2]
 } 
 
-node "Simulator Host" {
-folder "xml config"
-    [APDTCSServer] <--> [xml config]
+
+node "Sim Server Host" {
+folder APDTCSServerXMLConfig [
+lots of xml config files
+---
+Radio / Talkgroup Membership
+Organisation Blocks / Users
+Workstation ISSI's 
+]
+
+
+    [APDTCSServer] <--> [APDTCSServerXMLConfig]
 } 
 
 
