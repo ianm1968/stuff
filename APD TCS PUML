@@ -1,0 +1,18 @@
+@startuml
+node "Cortex Workstation1" {
+    [TCSDriver1] <--> [APDTCSClient1]
+} 
+
+node "Cortex Workstation2" {
+    [TCSDriver2] <--> [APDTCSClient2]
+} 
+
+node "Simulator Host" {
+folder "xml config"
+    [APDTCSServer] <--> [xml config]
+} 
+
+
+[APDTCSClient1] <--> [APDTCSServer]
+[APDTCSClient2] <--> [APDTCSServer]
+@enduml
